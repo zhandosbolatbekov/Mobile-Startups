@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D6FA783C9DE760ABB927541 /* Pods_Pixabay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E8315E780D671863A9F863 /* Pods_Pixabay.framework */; };
 		D71940BF2077E68100CA0795 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71940BE2077E68100CA0795 /* AppDelegate.swift */; };
 		D71940C12077E68100CA0795 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71940C02077E68100CA0795 /* ViewController.swift */; };
 		D71940C42077E68100CA0795 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D71940C22077E68100CA0795 /* Main.storyboard */; };
 		D71940C62077E68300CA0795 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D71940C52077E68300CA0795 /* Assets.xcassets */; };
 		D71940C92077E68300CA0795 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D71940C72077E68300CA0795 /* LaunchScreen.storyboard */; };
+		D71940D42077EDC500CA0795 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71940D32077EDC500CA0795 /* Video.swift */; };
+		D743168620789EF8007E72D0 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = D743168520789EF8007E72D0 /* Image.swift */; };
+		D750471E2079540D0033E45F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D750471D2079540D0033E45F /* DetailViewController.swift */; };
+		D7A6D2302078D14500E55DB9 /* CustomImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A6D22F2078D14500E55DB9 /* CustomImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29E8315E780D671863A9F863 /* Pods_Pixabay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pixabay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EA39EDEDAAE6431824B7CD3 /* Pods-Pixabay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixabay.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pixabay/Pods-Pixabay.release.xcconfig"; sourceTree = "<group>"; };
+		A482018DD1E7B240B29E76B3 /* Pods-Pixabay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixabay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pixabay/Pods-Pixabay.debug.xcconfig"; sourceTree = "<group>"; };
 		D71940BB2077E68100CA0795 /* Pixabay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pixabay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D71940BE2077E68100CA0795 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D71940C02077E68100CA0795 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +30,10 @@
 		D71940C52077E68300CA0795 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D71940C82077E68300CA0795 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D71940CA2077E68300CA0795 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D71940D32077EDC500CA0795 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		D743168520789EF8007E72D0 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		D750471D2079540D0033E45F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D7A6D22F2078D14500E55DB9 /* CustomImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D6FA783C9DE760ABB927541 /* Pods_Pixabay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		086A4B96BB046365F9349090 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29E8315E780D671863A9F863 /* Pods_Pixabay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3091E6DD33C54CB8F504D110 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A482018DD1E7B240B29E76B3 /* Pods-Pixabay.debug.xcconfig */,
+				7EA39EDEDAAE6431824B7CD3 /* Pods-Pixabay.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D71940B22077E68100CA0795 = {
 			isa = PBXGroup;
 			children = (
 				D71940BD2077E68100CA0795 /* Pixabay */,
 				D71940BC2077E68100CA0795 /* Products */,
+				3091E6DD33C54CB8F504D110 /* Pods */,
+				086A4B96BB046365F9349090 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +86,50 @@
 		D71940BD2077E68100CA0795 /* Pixabay */ = {
 			isa = PBXGroup;
 			children = (
+				D744B1BC2077F5C5001C11E0 /* Views */,
+				D71940D62077EE2500CA0795 /* Controllers */,
+				D71940D02077ED0F00CA0795 /* Models */,
 				D71940BE2077E68100CA0795 /* AppDelegate.swift */,
-				D71940C02077E68100CA0795 /* ViewController.swift */,
-				D71940C22077E68100CA0795 /* Main.storyboard */,
-				D71940C52077E68300CA0795 /* Assets.xcassets */,
-				D71940C72077E68300CA0795 /* LaunchScreen.storyboard */,
-				D71940CA2077E68300CA0795 /* Info.plist */,
+				D744B1BB2077F595001C11E0 /* Supporting files */,
 			);
 			path = Pixabay;
+			sourceTree = "<group>";
+		};
+		D71940D02077ED0F00CA0795 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D71940D32077EDC500CA0795 /* Video.swift */,
+				D743168520789EF8007E72D0 /* Image.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D71940D62077EE2500CA0795 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D71940C02077E68100CA0795 /* ViewController.swift */,
+				D750471D2079540D0033E45F /* DetailViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D744B1BB2077F595001C11E0 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				D71940C72077E68300CA0795 /* LaunchScreen.storyboard */,
+				D71940CA2077E68300CA0795 /* Info.plist */,
+				D71940C52077E68300CA0795 /* Assets.xcassets */,
+			);
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		D744B1BC2077F5C5001C11E0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D71940C22077E68100CA0795 /* Main.storyboard */,
+				D7A6D22F2078D14500E55DB9 /* CustomImageCollectionViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +139,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D71940CD2077E68300CA0795 /* Build configuration list for PBXNativeTarget "Pixabay" */;
 			buildPhases = (
+				746530B81DF400FDFE6FFA84 /* [CP] Check Pods Manifest.lock */,
 				D71940B72077E68100CA0795 /* Sources */,
 				D71940B82077E68100CA0795 /* Frameworks */,
 				D71940B92077E68100CA0795 /* Resources */,
+				43003E5CCA9A485B301A7E0D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,12 +200,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		43003E5CCA9A485B301A7E0D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Pixabay/Pods-Pixabay-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pixabay/Pods-Pixabay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		746530B81DF400FDFE6FFA84 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pixabay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D71940B72077E68100CA0795 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7A6D2302078D14500E55DB9 /* CustomImageCollectionViewCell.swift in Sources */,
 				D71940C12077E68100CA0795 /* ViewController.swift in Sources */,
+				D743168620789EF8007E72D0 /* Image.swift in Sources */,
+				D750471E2079540D0033E45F /* DetailViewController.swift in Sources */,
+				D71940D42077EDC500CA0795 /* Video.swift in Sources */,
 				D71940BF2077E68100CA0795 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,15 +397,13 @@
 		};
 		D71940CE2077E68300CA0795 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A482018DD1E7B240B29E76B3 /* Pods-Pixabay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6X8EVDXUM3;
 				INFOPLIST_FILE = Pixabay/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhandos.Pixabay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -296,15 +413,13 @@
 		};
 		D71940CF2077E68300CA0795 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EA39EDEDAAE6431824B7CD3 /* Pods-Pixabay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6X8EVDXUM3;
 				INFOPLIST_FILE = Pixabay/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhandos.Pixabay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

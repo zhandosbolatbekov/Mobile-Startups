@@ -10,4 +10,5 @@ import UIKit
 
 class CustomImageCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var previewImageView: UIImageView!
 }
