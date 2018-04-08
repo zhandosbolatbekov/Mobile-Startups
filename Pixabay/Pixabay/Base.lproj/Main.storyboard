@@ -48,7 +48,7 @@
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="5" leading="5" bottom="5" trailing="5"/>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lWv-uv-qWU">
-                                <rect key="frame" x="0.0" y="116" width="375" height="477"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="529"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="KSQ-kX-VI9">
                                     <size key="itemSize" width="50" height="50"/>
@@ -100,6 +100,7 @@
                         <outlet property="collectionView" destination="lWv-uv-qWU" id="rxd-cZ-nGo"/>
                         <outlet property="imagesButton" destination="ad4-1R-n6W" id="fbA-nh-luf"/>
                         <outlet property="videoButton" destination="qgm-EQ-Ytg" id="J05-3J-DGd"/>
+                        <segue destination="uZk-vd-v8d" kind="show" identifier="ShowDetail" id="2BL-Xo-ED8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -115,7 +116,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Nj-RX-LLM">
-                                <rect key="frame" x="0.0" y="238" width="375" height="211"/>
+                                <rect key="frame" x="0.0" y="260" width="375" height="211"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qW4-K8-KYr">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
@@ -130,9 +131,8 @@
                                     <constraint firstItem="qW4-K8-KYr" firstAttribute="leading" secondItem="7Nj-RX-LLM" secondAttribute="leading" id="xZw-xx-ZbL"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iPG-Z1-DFJ">
-                                <rect key="frame" x="163" y="551" width="48" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iPG-Z1-DFJ">
+                                <rect key="frame" x="163" y="503" width="48" height="48"/>
                                 <state key="normal" backgroundImage="play"/>
                                 <connections>
                                     <action selector="onPlayPauseButtonPressed:" destination="uZk-vd-v8d" eventType="touchUpInside" id="OxV-Ds-E1E"/>
@@ -141,13 +141,22 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="iPG-Z1-DFJ" firstAttribute="centerX" secondItem="gK6-HJ-cGn" secondAttribute="centerX" id="Cn7-dr-7eg"/>
                             <constraint firstItem="7Nj-RX-LLM" firstAttribute="trailing" secondItem="gK6-HJ-cGn" secondAttribute="trailing" id="R0w-sQ-mIT"/>
                             <constraint firstItem="7Nj-RX-LLM" firstAttribute="leading" secondItem="gK6-HJ-cGn" secondAttribute="leading" id="b7t-gB-CA1"/>
+                            <constraint firstItem="iPG-Z1-DFJ" firstAttribute="top" secondItem="qW4-K8-KYr" secondAttribute="bottom" constant="32" id="nxu-yc-9dx"/>
                             <constraint firstItem="7Nj-RX-LLM" firstAttribute="centerY" secondItem="gK6-HJ-cGn" secondAttribute="centerY" id="rJ7-tJ-DXc"/>
                             <constraint firstItem="7Nj-RX-LLM" firstAttribute="centerX" secondItem="gK6-HJ-cGn" secondAttribute="centerX" id="ur7-JH-AV3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gK6-HJ-cGn"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ubz-HO-zdW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="XfK-4Q-Jmd">
+                            <connections>
+                                <action selector="onShareButtonPressed:" destination="uZk-vd-v8d" id="fpZ-da-M0f"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="qW4-K8-KYr" id="YTU-Ct-3Vy"/>
                         <outlet property="playPauseButton" destination="iPG-Z1-DFJ" id="3eR-bD-I4P"/>
@@ -163,8 +172,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IQ9-du-DvL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="wwa-ZC-6Nu">
-                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wwa-ZC-6Nu">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

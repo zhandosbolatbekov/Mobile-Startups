@@ -13,6 +13,7 @@ import AVKit
 
 struct Constants {
     static let blueColor = UIColor.init(red: 122/255, green: 137/255, blue: 1, alpha: 1)
+    static let detailSegue = "ShowDetail"
 }
 
 class ViewController: UIViewController {
@@ -67,6 +68,11 @@ class ViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -90,6 +96,23 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case Constants.detailSegue:
+            let dest = segue.destination as! DetailViewController
+            let index = sender as? Int
+            if (isSearchImages) {
+                dest.isImage = true
+                dest.url = URL(string: self.images[index!].webformatURL)
+            } else {
+                dest.isImage = false
+                dest.url = URL(string: self.videos[index!].mediumVideoURL)
+            }
+        default:
+            return
+        }
     }
 }
 
@@ -131,15 +154,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let destination = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as! DetailViewController
-        if(isSearchImages) {
-            destination.url = URL(string: self.images[indexPath.item].webformatURL)!
-            destination.isImage = true
-        } else {
-            destination.url = URL(string: self.videos[indexPath.item].mediumVideoURL)!
-            destination.isImage = false
-        }
-        navigationController?.pushViewController(destination, animated: true)
+        performSegue(withIdentifier: Constants.detailSegue, sender: indexPath.item)
     }
 }
 

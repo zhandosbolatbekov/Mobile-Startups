@@ -19,6 +19,11 @@ class DetailViewController: UIViewController {
     @IBAction func onPlayPauseButtonPressed(_ sender: UIButton) {
         isPlaying = !isPlaying
     }
+    @IBAction func onShareButtonPressed(_ sender: UIBarButtonItem) {
+        let activityVC = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+    }
     
     var url: URL!
     var isImage: Bool!
@@ -49,6 +54,11 @@ class DetailViewController: UIViewController {
             playPauseButton.isHidden = true
             imageView.sd_setImage(with: url, completed: nil)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
