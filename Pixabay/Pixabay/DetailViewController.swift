@@ -45,14 +45,20 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         if(isImage == false) {
+            imageView.isHidden = true
+            playPauseButton.isHidden = false
             player = AVPlayer(url: url)
             playerLayer = AVPlayerLayer(player: player)
             playerLayer.videoGravity = .resize
             videoView.layer.addSublayer(playerLayer)
-            imageView.isHidden = true
         } else {
+            imageView.isHidden = false
             playPauseButton.isHidden = true
             imageView.sd_setImage(with: url, completed: nil)
+            imageView.isUserInteractionEnabled = true
+            
+            let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.pinchGesture))
+            imageView.addGestureRecognizer(pinchGesture)
         }
     }
     
@@ -74,4 +80,11 @@ class DetailViewController: UIViewController {
             playerLayer.frame = videoView.bounds
         }
     }
+    
+    @objc func pinchGesture(sender: UIPinchGestureRecognizer) {
+        print("pinch")
+        sender.view?.transform = (sender.view?.transform.scaledBy(x: sender.scale, y: sender.scale))!
+        sender.scale = 1
+    }
+    
 }
