@@ -9,5 +9,6 @@ target 'Pixabay' do
 pod 'SwiftyJSON'
 pod 'Alamofire', '~> 4.7'
 pod 'SDWebImage/WebP'
+pod 'Cache'
 
 end

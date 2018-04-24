@@ -9,9 +9,10 @@
 import Foundation
 import Alamofire
 
-struct Video {
+struct Video: Codable {
     typealias JSON = [String : Any]
     
+    var id = 0
     var previewURL = ""
     var mediumVideoURL = ""
     var tags = ""
@@ -27,15 +28,15 @@ struct Video {
                 let hits = json["hits"] as! [JSON]
                 for hit in hits {
                     let pictureID = hit["picture_id"] as! String
+                    let id = hit["id"] as! Int
                     let previewURL = "https://i.vimeocdn.com/video/\(pictureID)_295x166.jpg"
-                    
                     let videoJSON = hit["videos"] as! JSON
                     let medium = videoJSON["medium"] as! JSON
                     let mediumVideoURL = medium["url"] as! String
             
                     let tags = hit["tags"] as! String
                     
-                    let video = Video(previewURL: previewURL, mediumVideoURL: mediumVideoURL, tags: tags)
+                    let video = Video(id: id, previewURL: previewURL, mediumVideoURL: mediumVideoURL, tags: tags)
                     videos.append(video)
                 }
                 completion(videos)
@@ -44,5 +45,17 @@ struct Video {
                 completion([])
             }
         }
+    }
+    
+    static func addToFavorites(video: Video) {
+        var favoriteVideos = Storage.favoriteVideos.filter { $0 != video }
+        favoriteVideos.insert(video, at: 0)
+        Storage.favoriteVideos = favoriteVideos
+    }
+}
+
+extension Video: Equatable {
+    static func == (lhs: Video, rhs: Video) -> Bool {
+        return lhs.id == rhs.id
     }
 }

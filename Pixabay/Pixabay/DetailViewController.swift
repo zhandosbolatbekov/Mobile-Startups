@@ -15,18 +15,39 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var likeButton: UIBarButtonItem!
     
     @IBAction func onPlayPauseButtonPressed(_ sender: UIButton) {
         isPlaying = !isPlaying
     }
     @IBAction func onShareButtonPressed(_ sender: UIBarButtonItem) {
-        let activityVC = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
+        let shareURL = URL(string: isImage ? self.image.webformatURL : self.video.mediumVideoURL)!
+        let activityVC = UIActivityViewController(activityItems: [shareURL], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
     }
+    @IBAction func onLikeButtonPressed(_ sender: UIBarButtonItem) {
+        liked = true
+        if(isImage) {
+            Image.addToFavorites(image: self.image)
+        } else {
+            Video.addToFavorites(video: self.video)
+        }
+    }
     
-    var url: URL!
+    
+    var image: Image!
+    var video: Video!
     var isImage: Bool!
+    var liked = false {
+        didSet {
+            if(liked) {
+                likeButton.isEnabled = false
+            } else {
+                likeButton.isEnabled = true
+            }
+        }
+    }
     var isPlaying = false {
         didSet {
             if(isPlaying) {
@@ -47,24 +68,25 @@ class DetailViewController: UIViewController {
         if(isImage == false) {
             imageView.isHidden = true
             playPauseButton.isHidden = false
-            player = AVPlayer(url: url)
+            player = AVPlayer(url: URL(string: video.mediumVideoURL)!)
             playerLayer = AVPlayerLayer(player: player)
             playerLayer.videoGravity = .resize
             videoView.layer.addSublayer(playerLayer)
+            if Storage.favoriteVideos.contains(video) {
+                liked = true
+            }
         } else {
             imageView.isHidden = false
+            imageView.sd_setImage(with: URL(string: image.webformatURL)!, completed: nil)
             playPauseButton.isHidden = true
-            imageView.sd_setImage(with: url, completed: nil)
             imageView.isUserInteractionEnabled = true
             
             let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.pinchGesture))
             imageView.addGestureRecognizer(pinchGesture)
+            if Storage.favoriteImages.contains(image) {
+                liked = true
+            }
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     override func viewDidAppear(_ animated: Bool) {

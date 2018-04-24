@@ -16,7 +16,10 @@
 		D71940D42077EDC500CA0795 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71940D32077EDC500CA0795 /* Video.swift */; };
 		D743168620789EF8007E72D0 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = D743168520789EF8007E72D0 /* Image.swift */; };
 		D750471E2079540D0033E45F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D750471D2079540D0033E45F /* DetailViewController.swift */; };
+		D76E2466208CFE2D0085D43E /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76E2465208CFE2D0085D43E /* FavoritesCollectionViewCell.swift */; };
+		D79922DB207E1FA1009270F4 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79922DA207E1FA1009270F4 /* FavoritesViewController.swift */; };
 		D7A6D2302078D14500E55DB9 /* CustomImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A6D22F2078D14500E55DB9 /* CustomImageCollectionViewCell.swift */; };
+		D7E1AAD8207E283D005F782B /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E1AAD7207E283D005F782B /* Storage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +36,10 @@
 		D71940D32077EDC500CA0795 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		D743168520789EF8007E72D0 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		D750471D2079540D0033E45F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D76E2465208CFE2D0085D43E /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
+		D79922DA207E1FA1009270F4 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		D7A6D22F2078D14500E55DB9 /* CustomImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		D7E1AAD7207E283D005F782B /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 			children = (
 				D71940D32077EDC500CA0795 /* Video.swift */,
 				D743168520789EF8007E72D0 /* Image.swift */,
+				D7E1AAD7207E283D005F782B /* Storage.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -109,6 +116,7 @@
 			children = (
 				D71940C02077E68100CA0795 /* ViewController.swift */,
 				D750471D2079540D0033E45F /* DetailViewController.swift */,
+				D79922DA207E1FA1009270F4 /* FavoritesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -128,6 +136,7 @@
 			children = (
 				D71940C22077E68100CA0795 /* Main.storyboard */,
 				D7A6D22F2078D14500E55DB9 /* CustomImageCollectionViewCell.swift */,
+				D76E2465208CFE2D0085D43E /* FavoritesCollectionViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -209,6 +218,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Pixabay/Pods-Pixabay-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
@@ -216,6 +226,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
@@ -252,8 +263,11 @@
 			files = (
 				D7A6D2302078D14500E55DB9 /* CustomImageCollectionViewCell.swift in Sources */,
 				D71940C12077E68100CA0795 /* ViewController.swift in Sources */,
+				D76E2466208CFE2D0085D43E /* FavoritesCollectionViewCell.swift in Sources */,
+				D79922DB207E1FA1009270F4 /* FavoritesViewController.swift in Sources */,
 				D743168620789EF8007E72D0 /* Image.swift in Sources */,
 				D750471E2079540D0033E45F /* DetailViewController.swift in Sources */,
+				D7E1AAD8207E283D005F782B /* Storage.swift in Sources */,
 				D71940D42077EDC500CA0795 /* Video.swift in Sources */,
 				D71940BF2077E68100CA0795 /* AppDelegate.swift in Sources */,
 			);
@@ -403,7 +417,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6X8EVDXUM3;
 				INFOPLIST_FILE = Pixabay/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = zhandos.Pixabay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -419,7 +436,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6X8EVDXUM3;
 				INFOPLIST_FILE = Pixabay/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = zhandos.Pixabay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

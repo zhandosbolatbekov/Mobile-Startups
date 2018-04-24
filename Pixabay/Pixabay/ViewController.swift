@@ -11,9 +11,10 @@ import Alamofire
 import SDWebImage
 import AVKit
 
-struct Constants {
+private struct Constants {
     static let blueColor = UIColor.init(red: 122/255, green: 137/255, blue: 1, alpha: 1)
     static let detailSegue = "ShowDetail"
+    static let favoritesSegue = "ShowFavorites"
 }
 
 class ViewController: UIViewController {
@@ -68,11 +69,6 @@ class ViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -102,14 +98,17 @@ class ViewController: UIViewController {
         switch segue.identifier {
         case Constants.detailSegue:
             let dest = segue.destination as! DetailViewController
-            let index = sender as? Int
+            let index = sender as! Int
             if (isSearchImages) {
                 dest.isImage = true
-                dest.url = URL(string: self.images[index!].webformatURL)
+                dest.image = self.images[index]
             } else {
                 dest.isImage = false
-                dest.url = URL(string: self.videos[index!].mediumVideoURL)
+                dest.video = self.videos[index]
             }
+            break
+        case Constants.favoritesSegue:
+            break
         default:
             return
         }
