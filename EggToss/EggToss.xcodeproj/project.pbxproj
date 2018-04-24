@@ -10,9 +10,10 @@
 		D7688038208F112900CDB5A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7688037208F112900CDB5A7 /* AppDelegate.swift */; };
 		D768803A208F112900CDB5A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7688039208F112900CDB5A7 /* ViewController.swift */; };
 		D768803D208F112900CDB5A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D768803B208F112900CDB5A7 /* Main.storyboard */; };
-		D768803F208F112900CDB5A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D768803E208F112900CDB5A7 /* Assets.xcassets */; };
 		D7688042208F112900CDB5A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7688040208F112900CDB5A7 /* LaunchScreen.storyboard */; };
 		D768804A208F175B00CDB5A7 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7688049208F175B00CDB5A7 /* GameViewController.swift */; };
+		D768804C208F4F6A00CDB5A7 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D768804B208F4F6A00CDB5A7 /* LevelViewController.swift */; };
+		D7688051208F571200CDB5A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7688050208F571200CDB5A7 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +21,11 @@
 		D7688037208F112900CDB5A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7688039208F112900CDB5A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D768803C208F112900CDB5A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D768803E208F112900CDB5A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7688041208F112900CDB5A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7688043208F112900CDB5A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7688049208F175B00CDB5A7 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		D768804B208F4F6A00CDB5A7 /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
+		D7688050208F571200CDB5A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +61,11 @@
 				D7688037208F112900CDB5A7 /* AppDelegate.swift */,
 				D7688039208F112900CDB5A7 /* ViewController.swift */,
 				D768803B208F112900CDB5A7 /* Main.storyboard */,
-				D768803E208F112900CDB5A7 /* Assets.xcassets */,
 				D7688040208F112900CDB5A7 /* LaunchScreen.storyboard */,
 				D7688043208F112900CDB5A7 /* Info.plist */,
 				D7688049208F175B00CDB5A7 /* GameViewController.swift */,
+				D768804B208F4F6A00CDB5A7 /* LevelViewController.swift */,
+				D7688050208F571200CDB5A7 /* Assets.xcassets */,
 			);
 			path = EggToss;
 			sourceTree = "<group>";
@@ -126,7 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7688042208F112900CDB5A7 /* LaunchScreen.storyboard in Resources */,
-				D768803F208F112900CDB5A7 /* Assets.xcassets in Resources */,
+				D7688051208F571200CDB5A7 /* Assets.xcassets in Resources */,
 				D768803D208F112900CDB5A7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +144,7 @@
 				D768803A208F112900CDB5A7 /* ViewController.swift in Sources */,
 				D768804A208F175B00CDB5A7 /* GameViewController.swift in Sources */,
 				D7688038208F112900CDB5A7 /* AppDelegate.swift in Sources */,
+				D768804C208F4F6A00CDB5A7 /* LevelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

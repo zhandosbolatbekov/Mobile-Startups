@@ -57,16 +57,45 @@ class GameViewController: UIViewController {
         }
     }
     var speed = 15
+    var isSuperEgg = false {
+        didSet {
+            if(isSuperEgg) {
+                eggImageView.image = #imageLiteral(resourceName: "superegg")
+            } else {
+                eggImageView.image = #imageLiteral(resourceName: "egg-flying")
+            }
+        }
+    }
+    var level = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBasket()
         throwEgg()
+    }
+    
+    private func setBasket() {
+        switch level {
+        case 0: basketImageView.frame.origin.y = 370
+        case 1: basketImageView.frame.origin.y = 270
+        case 2: basketImageView.frame.origin.y = 170
+        default: basketImageView.frame.origin.y = 370
+        }
     }
     
     private func getInitialPositionForEgg() {
         eggImageView.isHidden = false
         eggPosition = Int(arc4random_uniform(3))
         eggImageView.frame.origin.y = 0
+    }
+    
+    private func generateEggType() {
+        let rand = Int(arc4random_uniform(5))
+        if(rand == 0) {
+            isSuperEgg = true
+        } else {
+            isSuperEgg = false
+        }
     }
     
     private func getEggPosition(index: Int) -> CGFloat {
@@ -89,6 +118,7 @@ class GameViewController: UIViewController {
     
     func throwEgg() {
         if (lives > 0) {
+            generateEggType()
             getInitialPositionForEgg()
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(changePosition), userInfo: nil, repeats: true)
         } else {
@@ -102,17 +132,21 @@ class GameViewController: UIViewController {
     }
     
     func checkEgg() {
-        if(eggImageView.frame.origin.y >= 390) {
-            if(basketPosition == eggPosition) {
+        if(eggImageView.frame.origin.y >= basketImageView.frame.origin.y + 20) {
+            if(eggImageView.frame.origin.y <= basketImageView.frame.origin.y + 100
+                && basketPosition == eggPosition) {
                 score += 1
+                if(isSuperEgg && lives < 5) {
+                    lives += 1
+                }
                 timer.invalidate()
                 throwEgg()
             } else if(eggImageView.frame.origin.y > 500) {
                 eggImageView.isHidden = true
                 brockenEggImageView.isHidden = false
                 brockenEggImageView.frame.origin.x = eggImageView.frame.origin.x - 10
-                timer.invalidate()
                 lives -= 1
+                timer.invalidate()
                 throwEgg()
             }
         }
